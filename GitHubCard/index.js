@@ -3,6 +3,11 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+import axios from 'axios'
+ axios.get(`https://api.github.com/users/zchips`).then(resp=>{
+  console.log(resp.data)
+ }).catch( err => console.error(err))
+
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -11,6 +16,8 @@
 
     Skip to STEP 3 (line 34).
 */
+
+
 
 /*
   STEP 4: Pass the data received from Github into your function,
