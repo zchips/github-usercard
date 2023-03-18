@@ -4,9 +4,19 @@
     https://api.github.com/users/<your name>
 */
 import axios from 'axios'
- axios.get(`https://api.github.com/users/zchips`).then(resp=>{
- document.querySelector('.cards').appendChild(githubCard(resp.data))
- }).catch( err => console.error(err))
+ 
+
+for (let i =  0; i < followersArray.length; i++){
+  getgitCard(followersArray[i])}
+
+
+function getgitCard(username) {
+  axios.get(`https://api.github.com/users/${username}`).then(resp=>{
+    document.querySelector('.cards').appendChild(githubCard(resp.data))
+    }).catch( err => console.error(err))
+   
+
+}
 
 
 /*
