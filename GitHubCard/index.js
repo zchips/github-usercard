@@ -5,7 +5,7 @@
 */
 import axios from 'axios'
  axios.get(`https://api.github.com/users/zchips`).then(resp=>{
-  console.log(resp.data)
+ document.querySelector('.cards').appendChild(githubCard(resp.data))
  }).catch( err => console.error(err))
 
 
@@ -16,7 +16,54 @@ import axios from 'axios'
 
     Skip to STEP 3 (line 34).
 */
+const followersArray = []
+function githubCard(gitInfo) {
+const card = document.createElement('div')
+const img = document.createElement('img')
+const cardInfo = document.createElement('div')
+const name = document.createElement('h3')
+const login = document.createElement('p')
+const location = document.createElement('p')
+const profile = document.createElement('p')
+const profileLink = document.createElement('a')
+const followers = document.createElement('p')
+const following = document.createElement('p')
+const bio = document.createElement('p')
+// const a = document.createElement('')
+// const a = document.createElement('')
 
+card.classList.add('card')
+cardInfo.classList.add('card-info')
+name.classList.add('name')
+login.classList.add('username')
+
+img.src = gitInfo.avatar_url
+img.alt = "github user"
+name.textContent = gitInfo.name
+login.textContent = gitInfo.login
+location.textContent = gitInfo.location
+profile.textContent = "Profile"
+profileLink.textContent = "Link to profile"
+profileLink.href = gitInfo.html_url
+followers.textContent = `Followers: ${gitInfo.follers}`
+following.textContent =  `Following: ${gitInfo.following}`
+bio.textContent = gitInfo.bio;
+
+
+card.appendChild(img)
+card.appendChild(cardInfo)
+cardInfo.appendChild(name)
+cardInfo.appendChild(login)
+cardInfo.appendChild(location)
+cardInfo.appendChild(profile)
+cardInfo.appendChild(followers)
+cardInfo.appendChild(following)
+cardInfo.appendChild(bio)
+profile.appendChild(profileLink)
+return card
+
+
+}
 
 
 /*
