@@ -16,7 +16,7 @@ import axios from 'axios'
 
     Skip to STEP 3 (line 34).
 */
-const followersArray = []
+const followersArray = [ zchips, fabpot, andrew, taylorotwell, egoist ]
 function githubCard(gitInfo) {
 const card = document.createElement('div')
 const img = document.createElement('img')
@@ -82,7 +82,7 @@ return card
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
